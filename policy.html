@@ -13,6 +13,7 @@
     <title>LIC INFORMATION</title>
     <script> 
     let policies = {
+        "OPTIONS": {"NAME":["SELECT"],"Policy": ["THE"], "Amount":["MONTH"]},
     "JANUARY": {"NAME":["Praveen","Praveen","Jaya"],"Policy": ["00064176", "123150926","125512168"], "Amount":["930", "1790" ,"1225"]}, 
     "FEBRUARY": {"NAME":["Ashish"],"Policy": ["122719724"], "Amount":["2047"]},
     "MARCH": {"NAME":["Praveen","Aishwarya"],"Policy": ["124983806","122372100"], "Amount":["1514","1360"]},
@@ -29,9 +30,11 @@
 </script>
 </head>
 <body>
-  <h1><i>CHOOSE MONTH</i></h1>  
+  <h1><i><b>MONTH</b> </i></h1>  
     <div class="menu">
         <select onchange="fun()" id="month">
+            <option value="0"> OPTIONS </option>
+
             <option value="1"> JANUARY </option>
             <option value="2"> FEBRUARY </option>
             <option value="3"> MARCH </option>
@@ -65,10 +68,10 @@
 while ( sim.firstChild) {
     sim.removeChild(sim.lastChild)
 }})
-    let months=["JANUARY","FEBRUARY", "MARCH","APRIL", "MAY","JUNE", "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER" ]
+    let months=["OPTIONS","JANUARY","FEBRUARY", "MARCH","APRIL", "MAY","JUNE", "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER" ]
     let  p =""
 const fun=()=>{
-         p = months[month.value-1]
+         p = months[month.value]
          heading.innerText=p
          let len= policies[p].NAME.length
          for(let i=0;i<len;i++){
