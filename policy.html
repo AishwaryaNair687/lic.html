@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background:url("https://i.pinimg.com/originals/2f/97/45/2f9745f974f8c731db27f562d3dfb7c9.jpg");
+            
+            background-repeat:repeat-x;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIC INFORMATION</title>
+    <script> 
+    let policies = {
+    "JANUARY": {"NAME":["Praveen","Praveen","Jaya"],"Policy": ["00064176", "123150926","125512168"], "Amount":["930", "1790" ,"1225"]}, 
+    "FEBRUARY": {"NAME":["Ashish"],"Policy": ["122719724"], "Amount":["2047"]},
+    "MARCH": {"NAME":["Praveen","Aishwarya"],"Policy": ["124983806","122372100"], "Amount":["1514","1360"]},
+    "APRIL": {"NAME":["Praveen","Praveen","Jaya"],"Policy": ["00064176", "123150926","125512168"], "Amount":["930", "1790" ,"1225"]}, 
+    "MAY": {"NAME":["Ashish"],"Policy": ["122719724"], "Amount":["2047"]},
+    "JUNE": {"NAME":["Praveen","Aishwarya"],"Policy": ["124983806","122372100"], "Amount":["1514","1360"]},
+    "JULY": {"NAME":["Praveen","Praveen","Jaya"],"Policy": ["00064176", "123150926","125512168"], "Amount":["930", "1790" ,"1225"]}, 
+    "AUGUST": {"NAME":["Ashish"],"Policy": ["122719724"], "Amount":["2047"]},
+    "SEPTEMBER": {"NAME":["Praveen","Aishwarya"],"Policy": ["124983806","122372100"], "Amount":["1514","1360"]},
+    "OCTOBER": {"NAME":["Praveen","Praveen","Jaya"],"Policy": ["00064176", "123150926","125512168"], "Amount":["930", "1790" ,"1225"]}, 
+    "NOVEMBER": {"NAME":["Ashish"],"Policy": ["122719724"], "Amount":["2047"]},
+    "DECEMBER": {"NAME":["Praveen","Aishwarya"],"Policy": ["124983806","122372100"], "Amount":["1514","1360"]},
+    }
+</script>
+</head>
+<body>
+  <h1><i>CHOOSE MONTH</i></h1>  
+    <div class="menu">
+        <select onchange="fun()" id="month">
+            <option value="1"> JANUARY </option>
+            <option value="2"> FEBRUARY </option>
+            <option value="3"> MARCH </option>
+            <option value="4">APRIL</option>
+            <option value="5"> MAY </option>
+            <option value="6"> JUNE </option>
+            <option value="7"> JULY </option>
+            <option value="8"> AUGUST </option>
+            <option value="9"> SEPTEMBER </option>
+            <option value="10"> OCTOBER </option>
+            <option value="11">NOVEMBER </option>
+            <option value="12">DECEMBER </option>
+        </select>
+
+    </div>
+    <div class="display">
+     <h1 id="data"></h1>
+    
+     <div id="multiple">
+     </div>    
+     <button id="delete"> 
+        <i><b>CLEAR</b></i>     </button>
+</div>
+</body>
+<script>
+    let cat=document.getElementById("multiple")
+    let month=document.getElementById("month")
+    let heading=document.getElementById("data")
+    let del=document.getElementById("delete")
+  del.addEventListener("click",()=>{const sim=document.getElementById("multiple")
+while ( sim.firstChild) {
+    sim.removeChild(sim.lastChild)
+}})
+    let months=["JANUARY","FEBRUARY", "MARCH","APRIL", "MAY","JUNE", "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER" ]
+    let  p =""
+const fun=()=>{
+         p = months[month.value-1]
+         heading.innerText=p
+         let len= policies[p].NAME.length
+         for(let i=0;i<len;i++){
+            let name=document.createElement("p")
+        let amount=document.createElement("p")
+        let policy=document.createElement("p")
+          name.textContent=policies[p].NAME[i] 
+         cat.appendChild(name)
+         policy.textContent=policies[p].Policy[i] 
+         cat.appendChild(policy)
+         amount.textContent=policies[p].Amount[i] 
+         cat.appendChild(amount)
+         }
+          
+         
+}
+</script>
+</html>
